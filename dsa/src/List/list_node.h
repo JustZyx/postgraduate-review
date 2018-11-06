@@ -12,7 +12,8 @@
  * @tparam T
  */
 template<typename T>
-struct ListNode {
+class ListNode {
+public:
     T data; //节点数据
     ListNodePosi(T) pred; //节点前驱位置
     ListNodePosi(T) succ; //节点后继位置
@@ -28,7 +29,8 @@ struct ListNode {
 };
 
 template<typename T>
-ListNodePosi(T) ListNode<T>::insertAsPred(T const& e)
+ListNodePosi(T)
+ListNode<T>::insertAsPred(T const& e)
 {
     ListNodePosi(T) p = new ListNode(e, pred, this);
     pred->succ = p;
@@ -37,7 +39,8 @@ ListNodePosi(T) ListNode<T>::insertAsPred(T const& e)
 }
 
 template<typename T>
-ListNodePosi(T) ListNode<T>::insertAsSucc(T const& e)
+ListNodePosi(T)
+ListNode<T>::insertAsSucc(T const& e)
 {
     ListNodePosi(T) p = new ListNode(e, this, succ);
     succ->pred = p;

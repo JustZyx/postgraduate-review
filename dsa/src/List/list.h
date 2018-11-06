@@ -14,7 +14,6 @@
  */
 template<typename T>
 class List {
-
 private:
     int _size; //规模
 
@@ -25,7 +24,8 @@ private:
     ListNodePosi(T) header; //头节点
     ListNodePosi(T) trailer; //尾节点
 protected:
-    void init();
+    void
+    init();
 
 public:
     List() { init(); } //默认构造函数，初始化头尾节点
@@ -42,7 +42,8 @@ public:
 };
 
 template<typename T>
-void List<T>::init()
+void
+List<T>::init()
 {
     _size = 0;
     header = new ListNode<T>;
@@ -54,35 +55,40 @@ void List<T>::init()
 }
 
 template<typename T>
-ListNodePosi(T) List<T>::insertAsFirst(T const& e)
+ListNodePosi(T)
+List<T>::insertAsFirst(T const& e)
 {
     _size++;
     return header->insertAsSucc(e);
 }
 
 template<typename T>
-ListNodePosi(T) List<T>::insertAsLast(T const& e)
+ListNodePosi(T)
+List<T>::insertAsLast(T const& e)
 {
     _size++;
     return trailer->insertAsPred(e);
 }
 
 template<typename T>
-ListNodePosi(T) List<T>::insertA(ListNodePosi(T) p, T const& e)
+ListNodePosi(T)
+List<T>::insertA(ListNodePosi(T) p, T const& e)
 {
     _size++;
     return p->insertAsSucc(e);
 }
 
 template<typename T>
-ListNodePosi(T) List<T>::insertB(ListNodePosi(T) p, T const& e)
+ListNodePosi(T)
+List<T>::insertB(ListNodePosi(T) p, T const& e)
 {
     _size++;
     return p->insertAsPred(e);
 }
 
 template<typename T>
-void List<T>::traverse()
+void
+List<T>::traverse()
 {
     for (ListNodePosi(T) p = header->succ; p!=trailer; p = p->succ) {
         T tmp = p->data;
@@ -91,7 +97,8 @@ void List<T>::traverse()
 }
 
 template<typename T>
-int List<T>::size()
+int
+List<T>::size()
 {
     return _size;
 }
